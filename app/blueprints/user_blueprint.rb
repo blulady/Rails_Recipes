@@ -7,5 +7,8 @@ class UserBlueprint < Blueprinter::Base
     end
     view :with_favorite_recipes do
         association :favorite_recipes, blueprint: RecipeBlueprint
-      end
+    end
+    view :me do
+        fields :email, :first_name, :last_name
+    end
 end
