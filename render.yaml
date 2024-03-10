@@ -1,0 +1,22 @@
+databases:
+    - name: rails_angular_recipes
+      databaseName: rails_angular_recipes
+      user: rails_angular_recipes
+      plan: free
+
+services:
+    - type: web
+      name: rails_angular_recipes
+      runtime: ruby
+      plan: free
+      buildComamand: './bin/render-build.sh'
+      startCommand: './bin/rails server'
+      envVars:
+          - key: DATABASE_URL
+            fromDatabase:
+                name: rails_angular_recipes
+                property: connectionString
+          - key: RAILS_MASTER_KEY
+            sync: false
+          - key: WEB_CONCURRENCY
+            value: 2
