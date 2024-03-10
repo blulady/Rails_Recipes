@@ -9,7 +9,7 @@ services:
       name: rails_angular_recipes
       runtime: ruby
       plan: free
-      buildComamand: './bin/render-build.sh'
+      buildCommand: './bin/render-build.sh'
       startCommand: './bin/rails server'
       envVars:
           - key: DATABASE_URL
