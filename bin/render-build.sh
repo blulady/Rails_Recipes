@@ -1,3 +1,3 @@
 set -o errexit
 bundle install
-bundle exec rake db:migrage
+bundle exec rake db:migrate
