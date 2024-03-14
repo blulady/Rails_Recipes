@@ -16,10 +16,11 @@ class RecipesController < ApplicationController
        total_pages: total_pages, current_page: current_page}, status: 200
   
     end
+
   
     def show
-  
-      render json: @recipe, status: 200
+      render json: RecipeBlueprint.render_as_hash(@recipe, view: :long), status: :ok
+      # render json: @recipe, status: 200
     end
   
     def create
@@ -71,7 +72,7 @@ class RecipesController < ApplicationController
     private
   
     def recipe_params
-      params.permit(:name, :description, :servings, :img_url, :instructions, :difficulty_level, :cooking_time, :meal)
+      params.permit(:name, :description, :servings, :img_url, :instructions, :difficulty_level, :cooking_time, :meal, :recipe_image)
     end
     
   
