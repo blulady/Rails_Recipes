@@ -12,7 +12,7 @@ class UserBlueprint < Blueprinter::Base
     view :me do
         fields :email, :first_name, :last_name
     end
-    view :with_recipes do
-        association :reviews, blueprint: ReviewBlueprint
-    end
+    # view :with_recipes do
+    #     association :reviews, blueprint: ReviewBlueprint
+    # end
 end
