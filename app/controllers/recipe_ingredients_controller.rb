@@ -4,13 +4,14 @@ class RecipeIngredientsController < ApplicationController
   
     def index
       recipe_ingredients = RecipeIngredient.all 
+      render json: RecipeIngredientBlueprint.render_as_hash(recipe_ingredients, view: :normal), status: 200
   
-      render json: recipe_ingredients, status: 200
+      # render json: recipe_ingredients, status: 200
     end
   
     def show
-  
-      render json: @recipe_ingredient, status: 200
+      render json: RecipeIngredientBlueprint.render_as_hash(@recipe_ingredient, view: :normal), status: 200
+      # render json: @recipe_ingredient, status: 200
     end
   
     def create

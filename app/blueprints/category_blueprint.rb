@@ -2,6 +2,7 @@
 
 class CategoryBlueprint < Blueprinter::Base
     identifier :id
+    fields :name, :description, :link
     view :normal do
         fields :name
     end

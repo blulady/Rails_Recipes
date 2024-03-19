@@ -4,8 +4,9 @@ class MeasurementsController < ApplicationController
   
     def index
       measurements = Measurement.all 
+      render json: MeasurementBlueprint.render_as_hash(measurements, view: :normal), status: 200
   
-      render json: measurements, status: 200
+      # render json: measurements, status: 200
     end
   
     def show

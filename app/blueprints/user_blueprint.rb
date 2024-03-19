@@ -2,6 +2,7 @@
 
 class UserBlueprint < Blueprinter::Base
     identifier :id
+    fields :first_name
     view :normal do 
         fields :email, :first_name, :last_name
     end
@@ -10,5 +11,8 @@ class UserBlueprint < Blueprinter::Base
     end
     view :me do
         fields :email, :first_name, :last_name
+    end
+    view :with_recipes do
+        association :reviews, blueprint: ReviewBlueprint
     end
 end

@@ -7,4 +7,5 @@ class RecipeIngredientBlueprint < Blueprinter::Base
     end
     association :ingredient, blueprint: IngredientBlueprint
     association :measurement, blueprint: MeasurementBlueprint
+    association :recipe, blueprint: RecipeBlueprint
 end
