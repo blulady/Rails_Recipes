@@ -9,8 +9,27 @@ class IngredientsController < ApplicationController
     end
   
     def show
-  
+      # ingredient = Ingredient.find_by(id: params[:id])
+      
       render json: @ingredient, status: 200
+    end
+    # def show
+    #   if params[:name]
+    #     ingredient = Ingredient.find_by(name: params[:name])
+    #   else
+    #     ingredient = Ingredient.find_by(id: params[:id])
+    #   end
+    
+    #   if ingredient
+    #     render json: ingredient, status: 200
+    #   else
+    #     render json: { error: "Ingredient not found" }, status: :unprocessable_entity
+    #   end
+    # end
+    def show_by_name
+      ingredient = Ingredient.find_by(name: params[:name])
+
+      render json: ingredient, status: 200
     end
   
     def create
@@ -60,6 +79,19 @@ class IngredientsController < ApplicationController
   
     def set_ingredient
       @ingredient = Ingredient.find(params[:id])
+      
+    end
+
+    # def set_ingredient
+    #   if is_number?(params[:id])
+    #     @ingredient = Ingredient.find(params[:id])
+    #   else
+    #     @ingredient = Ingredient.find_by(name: params[:id])
+    #   end
+    # end
+    
+    def is_number?(string)
+      true if Float(string) rescue false
     end
   end
 

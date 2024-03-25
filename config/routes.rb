@@ -17,10 +17,15 @@ Rails.application.routes.draw do
   resources :categories do
     get 'recipes', to: "categories#recipes_index"
   end
+  
+  get 'ingredients/name/:name', to: "ingredients#show_by_name"
+
   resources :ingredients do
     get 'recipes', to: "ingredients#recipes_index"
     get 'recipes_without', to: "ingredients#recipes_without_index"
   end
+  
+  
   resources :measurements
   resources :reviews
   resources :recipe_ingredients
